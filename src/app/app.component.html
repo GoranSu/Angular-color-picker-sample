@@ -1,0 +1,15 @@
+<button style="margin: 10px; opacity: 70%;" mat-raised-button 
+        (click)="toggleArticles()">
+        Show articles
+</button>
+<button mat-icon-button color="warn" matTooltip="Picture by Alejandro Matamoros">
+  <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+</button>
+
+<div *ngIf="showArticles">
+  <div *ngFor="let article of articles">
+    <app-card-component *ngIf="article.active"
+                        [article]="article">
+    </app-card-component>
+  </div>
+</div>
