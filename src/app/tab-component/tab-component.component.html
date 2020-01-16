@@ -1,0 +1,39 @@
+<mat-tab-group class="tabs">
+  <div *ngFor="let article of articles">
+    <mat-tab *ngIf="article.active" label="{{article.title}}">
+      <div [ngStyle]="{background: article.backgroundColor}">
+        <p [ngStyle]="{color: article.fontColor}">{{article.content}}</p>
+      </div>
+      <div class="actions" fxFlex="row" fxLayout="end center">
+        <button mat-raised-button (click)="openLink(article.link)">LINK</button>
+        <button mat-raised-button>LIKE</button>
+        <button mat-raised-button>SHARE</button>
+        <button mat-raised-button (click)="toggleCustomization()">Customize</button>
+      </div>
+     <div class="customizationRow" *ngIf="showCustomization" fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div fxFlex="88">
+       <mat-expansion-panel>
+           <mat-expansion-panel-header>
+             <mat-panel-title>Customization
+             </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-color-picker [active]="true" 
+                          [color]="article.backgroundColor"
+                          [heading]="'Background'" 
+                          (event)="setColor(article, 'background', $event)">
+        </app-color-picker>
+
+        <app-color-picker [active]="true" 
+                          [color]="article.fontColor"
+                          [heading]="'Font'" 
+                          (event)="setColor(article, 'font', $event)">
+        </app-color-picker>
+       </mat-expansion-panel>
+     </div>
+     <div fxFlex="10">
+       <button mat-raised-button (click)="resetToDefault(article)">Reset</button>
+     </div>
+     </div>
+    </mat-tab>
+  </div>
+</mat-tab-group>

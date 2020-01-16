@@ -2,6 +2,12 @@
         (click)="toggleArticles()">
         Show articles
 </button>
+
+<button style="margin: 10px; opacity: 70%;" mat-raised-button 
+        (click)="toggleTabs()">
+        Show tabs
+</button>
+
 <button mat-icon-button color="warn" 
         matTooltip="Picture by Alejandro Matamoros">
   <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
@@ -14,3 +20,7 @@
     </app-card-component>
   </div>
 </div>
+
+<!-- <div *ngIf="showTabs"> -->
+  <app-tab-component [articles]="articles"></app-tab-component>
+<!-- </div> -->

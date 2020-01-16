@@ -1,0 +1,20 @@
+.tabs {
+  margin: 10px;
+  opacity: 90%;
+  background: white;
+}
+
+p {
+  padding: 10px;
+}
+
+.actions {
+  margin: 10px;
+}
+
+button {
+  margin-right: 10px;
+}
+.customizationRow {
+  margin: 10px;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Article } from './article';
 
 @Component({
@@ -6,8 +6,9 @@ import { Article } from './article';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public showArticles: boolean = false;
+  public showTabs: boolean = false;
   public articles: Article[] = [
     { title: 'Article One', subtitle: 'Article One subtitle', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. IPraesent libero. Sed cursus ante dapibus diam. Sed nisi.', image: 'https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80', link: 'www.google.com', active: true, backgroundColor: '#fff',
         fontColor: '#ff0000',
@@ -33,5 +34,9 @@ export class AppComponent implements OnInit {
 
   toggleArticles() {
       this.showArticles = !this.showArticles;
+  }
+
+  toggleTabs() {
+    this.showTabs = !this.showTabs;
   }
 }
