@@ -5,8 +5,12 @@ export class Article {
   image: string = '';
   link: string = '';
   active: boolean = true;
-  backgroundColor:string;
-  fontColor:string;
-  linkColor:string;
-  titleColor: string;
+  colors: Colors;
+}
+
+export class Colors {
+  backgroundColor:string = '';  
+  fontColor:string = '';
+  linkColor:string = '';
+  titleColor: string = '';
 }

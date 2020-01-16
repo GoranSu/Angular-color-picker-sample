@@ -2,10 +2,10 @@
   <div *ngFor="let article of articles">
     <mat-tab *ngIf="article.active">
       <ng-template mat-tab-label>
-        <div [ngStyle]="{color: article.titleColor}">{{article.title}}</div></ng-template>
+        <div [ngStyle]="{color: article.colors.titleColor}">{{article.title}}</div></ng-template>
 
-      <div [ngStyle]="{background: article.backgroundColor}">
-        <p [ngStyle]="{color: article.fontColor}">{{article.content}}</p>
+      <div [ngStyle]="{background: article.colors.backgroundColor}">
+        <p [ngStyle]="{color: article.colors.fontColor}">{{article.content}}</p>
       </div>
       <div class="actions" fxFlex="row" fxLayout="end center">
         <button mat-raised-button (click)="openLink(article.link)">LINK</button>
@@ -21,19 +21,19 @@
              </mat-panel-title>
           </mat-expansion-panel-header>
           <app-color-picker [active]="true" 
-                          [color]="article.backgroundColor"
+                          [color]="article.colors.backgroundColor"
                           [heading]="'Background'" 
                           (event)="setColor(article, 'background', $event)">
         </app-color-picker>
 
         <app-color-picker [active]="true" 
-                          [color]="article.fontColor"
+                          [color]="article.colors.fontColor"
                           [heading]="'Font'" 
                           (event)="setColor(article, 'font', $event)">
         </app-color-picker>
 
         <app-color-picker [active]="true" 
-                          [color]="article.titleColor"
+                          [color]="article.colors.titleColor"
                           [heading]="'Title'" 
                           (event)="setColor(article, 'title', $event)">
         </app-color-picker>

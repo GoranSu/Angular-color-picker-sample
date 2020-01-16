@@ -12,13 +12,14 @@ export class CardComponentComponent implements OnInit {
   defaultBackground: string = '#FFF';
   defaultFont: string = '#000105';
   defaultLink: string = '#000105';
+  defaultTitle: string = '#000105';
   @Input() article: Article;
   showCustomization: boolean = false;
   constructor() {
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   openLink(link: string) {
     console.log(link)
   }
@@ -28,14 +29,17 @@ export class CardComponentComponent implements OnInit {
   setColor(card: any, type: string, color: string) {
       console.log(card, type, color)
       switch (type) {
+        case 'title':
+          card.colors.titleColor = color;
+          break;
         case 'background':
-          card.backgroundColor = color;
+          card.colors.backgroundColor = color;
           break;
         case 'font':
-          card.fontColor = color;
+          card.colors.fontColor = color;
           break;
         case 'link':
-          card.linkColor = color;
+          card.colors.linkColor = color;
           break;
         default:
           break;
@@ -43,9 +47,10 @@ export class CardComponentComponent implements OnInit {
    }
   resetToDefault(article: Article) {
     console.log(article)
-    article.backgroundColor = this.defaultBackground;
-    article.fontColor = this.defaultFont;
-    article.linkColor = this.defaultLink;
+    article.colors.backgroundColor = this.defaultBackground;
+    article.colors.fontColor = this.defaultFont;
+    article.colors.linkColor = this.defaultLink;
+    article.color.titleColor = this.defaultTitle;
     this.showCustomization = false;
   }
 }

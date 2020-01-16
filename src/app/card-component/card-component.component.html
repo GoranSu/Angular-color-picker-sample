@@ -1,13 +1,13 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-title [ngStyle]="{color: article.colors.titleColor}">{{article.title}}</mat-card-title>
     <mat-card-subtitle>{{article.subtitle}}</mat-card-subtitle>
     <div mat-card-avatar>
       <img class="avatar" [src]="article.image" />
     </div>
   </mat-card-header>
-   <mat-card-content [ngStyle]="{background: article.backgroundColor}">
-     <p [ngStyle]="{color: article.fontColor}">{{article.content}}</p>
+   <mat-card-content [ngStyle]="{background: article.colors.backgroundColor}">
+     <p [ngStyle]="{color: article.colors.fontColor}">{{article.content}}</p>
    </mat-card-content>
    <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
       <button mat-raised-button 
@@ -24,20 +24,25 @@
              <mat-panel-title>Customization
              </mat-panel-title>
           </mat-expansion-panel-header>
-          <app-color-picker [active]="true" 
-                          [color]="article.backgroundColor"
+        <app-color-picker [active]="true" 
+                          [color]="article.colors.titleColor"
+                          [heading]="'Title'" 
+                          (event)="setColor(article, 'title', $event)">
+        </app-color-picker>
+        <app-color-picker [active]="true" 
+                          [color]="article.colors.backgroundColor"
                           [heading]="'Background'" 
                           (event)="setColor(article, 'background', $event)">
         </app-color-picker>
 
         <app-color-picker [active]="true" 
-                          [color]="article.fontColor"
+                          [color]="article.colors.fontColor"
                           [heading]="'Font'" 
                           (event)="setColor(article, 'font', $event)">
         </app-color-picker>
 
         <app-color-picker [active]="true" 
-                          [color]="article.linkColor"
+                          [color]="article.colors.linkColor"
                           [heading]="'Links'" 
                           (event)="setColor(article, 'link', $event)">
         </app-color-picker>

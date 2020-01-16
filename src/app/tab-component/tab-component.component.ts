@@ -26,16 +26,16 @@ export class TabComponentComponent implements OnInit {
       console.log(card, type, color)
       switch (type) {
         case 'title':
-          card.titleColor = color;
+          card.colors.titleColor = color;
           break;
         case 'background':
-          card.backgroundColor = color;
+          card.colors.backgroundColor = color;
           break;
         case 'font':
-          card.fontColor = color;
+          card.colors.fontColor = color;
           break;
         case 'link':
-          card.linkColor = color;
+          card.colors.linkColor = color;
           break;
         default:
           break;
@@ -44,9 +44,9 @@ export class TabComponentComponent implements OnInit {
 
    resetToDefault(article: Article) {
     console.log(article)
-    article.titleColor = this.defaultTitle;
-    article.backgroundColor = this.defaultBackground;
-    article.fontColor = this.defaultFont;
+    article.colors.titleColor = this.defaultTitle;
+    article.colors.backgroundColor = this.defaultBackground;
+    article.colors.fontColor = this.defaultFont;
     this.showCustomization = false;
    }
 }
