@@ -11,7 +11,7 @@ export class TabComponentComponent implements OnInit {
   showCustomization: boolean = false;
   defaultBackground: string = '#FFF';
   defaultFont: string = '#000105';
-
+  defaultTitle: string = '#000105';
   constructor() { }
 
   ngOnInit() {}
@@ -25,6 +25,9 @@ export class TabComponentComponent implements OnInit {
   setColor(card: any, type: string, color: string) {
       console.log(card, type, color)
       switch (type) {
+        case 'title':
+          card.titleColor = color;
+          break;
         case 'background':
           card.backgroundColor = color;
           break;
@@ -41,6 +44,7 @@ export class TabComponentComponent implements OnInit {
 
    resetToDefault(article: Article) {
     console.log(article)
+    article.titleColor = this.defaultTitle;
     article.backgroundColor = this.defaultBackground;
     article.fontColor = this.defaultFont;
     this.showCustomization = false;

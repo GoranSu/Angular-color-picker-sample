@@ -1,6 +1,9 @@
 <mat-tab-group class="tabs">
   <div *ngFor="let article of articles">
-    <mat-tab *ngIf="article.active" label="{{article.title}}">
+    <mat-tab *ngIf="article.active">
+      <ng-template mat-tab-label>
+        <div [ngStyle]="{color: article.titleColor}">{{article.title}}</div></ng-template>
+
       <div [ngStyle]="{background: article.backgroundColor}">
         <p [ngStyle]="{color: article.fontColor}">{{article.content}}</p>
       </div>
@@ -27,6 +30,12 @@
                           [color]="article.fontColor"
                           [heading]="'Font'" 
                           (event)="setColor(article, 'font', $event)">
+        </app-color-picker>
+
+        <app-color-picker [active]="true" 
+                          [color]="article.titleColor"
+                          [heading]="'Title'" 
+                          (event)="setColor(article, 'title', $event)">
         </app-color-picker>
        </mat-expansion-panel>
      </div>

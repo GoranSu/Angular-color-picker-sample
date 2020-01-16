@@ -8,4 +8,5 @@ export class Article {
   backgroundColor:string;
   fontColor:string;
   linkColor:string;
+  titleColor: string;
 }
