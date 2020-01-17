@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { MatExpansionPanel } from '@angular/material';
 @Component({
   selector: 'app-color-picker',
   templateUrl: './color-picker.component.html',
@@ -11,6 +11,8 @@ export class ColorPickerComponent {
   @Output() event: EventEmitter<string> = new EventEmitter<string>();
   @Input() active: boolean;
   public show = false;
+  @ViewChild('expansionPanel', null) expansionPanel: MatExpansionPanel;
+
 public defaultColors: string[] = [
       '#ffffff',
       '#000105',
@@ -48,6 +50,7 @@ public defaultColors: string[] = [
     this.color = color;
     this.event.emit(this.color);
     this.show = false;
+    this.expansionPanel.close();
   }
   /**
    * Change color from input

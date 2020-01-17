@@ -27,7 +27,6 @@ export class CardComponentComponent implements OnInit {
     this.showCustomization = !this.showCustomization; 
   }
   setColor(card: any, type: string, color: string) {
-      console.log(card, type, color)
       switch (type) {
         case 'title':
           card.colors.titleColor = color;
@@ -46,7 +45,6 @@ export class CardComponentComponent implements OnInit {
       }
    }
   resetToDefault(article: Article) {
-    console.log(article)
     article.colors.backgroundColor = this.defaultBackground;
     article.colors.fontColor = this.defaultFont;
     article.colors.linkColor = this.defaultLink;
