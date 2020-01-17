@@ -50,7 +50,7 @@ export class CardComponentComponent implements OnInit {
     article.colors.backgroundColor = this.defaultBackground;
     article.colors.fontColor = this.defaultFont;
     article.colors.linkColor = this.defaultLink;
-    article.color.titleColor = this.defaultTitle;
+    article.colors.titleColor = this.defaultTitle;
     this.showCustomization = false;
   }
 }
